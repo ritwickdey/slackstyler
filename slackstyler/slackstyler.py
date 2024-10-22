@@ -51,7 +51,6 @@ class SlackRenderer(mistune.Renderer):
         return 'li: ' + text + '\n'
 
     def link(self, link, title, content):
-        # escaped_link = self.escape_special(link)
         if content:
             return f'<{link}|{content}>'
         if title:
