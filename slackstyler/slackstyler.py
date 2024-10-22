@@ -53,10 +53,13 @@ class SlackRenderer(mistune.Renderer):
     def link(self, link, title, content):
         escaped_link = self.escape_special(link)
         if title:
-            return f'<{escaped_link}|{title}>'
+            return f'<{link}|{title}>'
+        if content:
+            return f'<{link}|{content}>'
         return f'<{escaped_link}>'
 
     def image(self, src, title, text):
+        print("Test test", src, title, text)
         escaped_src = self.escape_special(src)
         if title or text:
             return f'<{escaped_src}|{title if title else text}>'
